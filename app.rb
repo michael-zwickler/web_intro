@@ -2,7 +2,7 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 
 get '/' do
-  "I am non secret!"
+  erb(:index)
 end
 
 get '/secret' do 

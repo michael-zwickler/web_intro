@@ -3,16 +3,20 @@ require 'sinatra/reloader' if development?
 
 
 get '/' do
-  @random_name = ["Amigo", "Misty", "Almond"].sample
-  erb(:index)
+  'Hello World'
 end
 
 get '/secret' do 
   'I am secret!'
 end
 
-get '/cat' do
-  "<div style='border: 3px dashed red'>
-     <img src='http://placekitten.com/500/500'>
-   </div>"
+get '/random-cat' do
+  @name = ["Amigo", "Misty", "Almond"].sample
+  erb(:index)
+end
+
+get '/named-cat' do
+  puts params
+  @name = params[:name]
+  erb(:index)
 end
